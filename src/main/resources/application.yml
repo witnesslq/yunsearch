@@ -1,0 +1,47 @@
+file.path: D:\nginx\webapp\community\public\upload
+
+logging:
+    level:
+        root: INFO
+        #com.cpic.community: DEBUG
+    config: classpath:logback-spring.xml
+
+server:
+  context-path: /yunsearch
+
+spring:
+    profiles:
+        active: dev
+    datasource:
+        name: test
+        url: jdbc:mysql://localhost:3306/yunsearch?useSSL=true
+        username: root
+        password: root
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        druid:
+          filters: stat,wall,log4j
+          maxActive: 20
+          initialSize: 1
+          maxWait: 60000
+          minIdle: 1
+          timeBetweenEvictionRunsMillis: 60000
+          minEvictableIdleTimeMillis: 300000
+          validationQuery: SELECT 1 FROM DUAL
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+    freemarker:
+        cache: false
+        suffix: .ftl
+        request-context-attribute: request
+    jpa:
+      hibernate:
+        ddl-auto: update
+    http:
+      multipart:
+        max-file-size: 15Mb
+        max-request-size: 20Mb

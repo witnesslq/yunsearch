@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- spring boot 打印基本设置 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <!-- spring boot 常规输出日志文件 -->
+    <!--<include resource="org/springframework/boot/logging/logback/file-appender.xml" />-->
+
+    <property name="LOG_DIR" value="../logs/yunsearch"/>
+    <property name="LOG_FILE" value="yunsearch"/>
+
+    <!-- 自定义按日期分割日志文件 -->
+    <appender name="DATEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <!--
+        <prudent>：当为true时，不支持FixedWindowRollingPolicy。
+        支持TimeBasedRollingPolicy，但是有两个限制，1不支持也不允许文件压缩，2不能设置file属性，必须留空。
+        -->
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/%d{yyyy-MM-dd}/${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- 需要输出日志的包-->
+    <logger name="com.github.gin.yunsearch" level="INFO" />
+    <!--<logger name="com.github.gin.agama" level="DEBUG" />-->
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <!--<appender-ref ref="FILE" />-->
+        <appender-ref ref="DATEFILE" />
+    </root>
+
+</configuration>

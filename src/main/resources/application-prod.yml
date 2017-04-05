@@ -1,0 +1,4 @@
+debug: false
+
+server:
+    port: 8080
