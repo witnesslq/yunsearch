@@ -27,7 +27,6 @@ public class YunUserTest {
 
     @Test
     @Transactional
-    @Rollback(false)
     public void test(){
         YunUser user = new YunUser();
         user.setUpdateTime(new Date());

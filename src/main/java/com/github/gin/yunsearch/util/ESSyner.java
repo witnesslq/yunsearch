@@ -55,12 +55,16 @@ public class ESSyner {
 
     }
 
-    public static void main(String[] args) throws IOException {
-        //TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
-      //          .addTransportAddress(new InetSocketTransportAddress(new InetSocketAddress(InetAddress.getByName("localhost"),9300)));
+   /* public static void main(String[] args) throws IOException {
+        TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
+                .addTransportAddress(
+                        new InetSocketTransportAddress(
+                                new InetSocketAddress(InetAddress.getByName("192.168.153.131"),9300)
+                        )
+                );
 
         //new ESSyner().syn();
 
 
-    }
+    }*/
 }
