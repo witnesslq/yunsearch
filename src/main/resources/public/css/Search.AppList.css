@@ -1,0 +1,27 @@
+.applist {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 165px;
+}
+
+    .applist a {
+        padding: 7px 15px;
+        color: #000;
+        width: 100px;
+    }
+
+        .applist a.selected {
+            border-bottom: 2px solid #6299ce;
+        }
+
+
+.new:after {
+    content: "●";
+    position: relative;
+    top: -10px;
+    left: 1px;
+    text-decoration: none;
+    display: inline-block;
+    color: #d01717;
+    font-size: 75%;
+}

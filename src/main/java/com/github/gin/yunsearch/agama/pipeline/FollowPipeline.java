@@ -3,7 +3,7 @@ package com.github.gin.yunsearch.agama.pipeline;
 import com.github.gin.agama.pipeline.Pipeline;
 import com.github.gin.yunsearch.agama.entity.Follow;
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.service.YunUserService;
+import com.github.gin.yunsearch.service.jpa.YunUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

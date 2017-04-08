@@ -1,0 +1,58 @@
+header .sitenav,
+header .user-info {
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 30px;
+}
+
+header a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    header a:hover {
+        color: #333;
+    }
+
+header .user-info {
+    min-width: 70px;
+}
+
+    header .user-info .user-alias:after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid;
+        border-bottom: none;
+        height: 4px;
+        margin-left: 2px;
+    }
+
+    header .user-info .ul {
+        position: absolute;
+        padding: 10px 0;
+        border: 1px solid #55a8fd;
+        display: none;
+        box-shadow: 0 0 3px #a7a7a7;
+        background-color: #fff;
+    }
+
+    header .user-info:hover .ul {
+        display: block;
+    }
+
+    header .user-info .ul a {
+        display: block;
+        text-align: center;
+        line-height: 25px;
+        padding: 0 10px;
+    }
+
+        header .user-info .ul a:hover {
+            background-color: #55a8fd;
+            color: #fff;
+        }

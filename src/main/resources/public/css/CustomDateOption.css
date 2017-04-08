@@ -1,0 +1,35 @@
+﻿.costom-date {
+    background-color: transparent;
+    border-top: 1px solid #ddd;
+    font-weight: normal;
+}
+
+
+    .costom-date input.date {
+        width: 105px;
+        display: inline-block;
+        height: 12px;
+        padding: 3px;
+        margin: 8px 0 2px;
+    }
+
+    .costom-date input.submit {
+        display: block;
+        width: 100%;
+        height: 24px;
+        border: none;
+        background-color: transparent;
+        font-size: 13px;
+        color: #777;
+    }
+
+        .costom-date input.submit:hover {
+            font-weight: bold;
+            border: 1px solid #659ee4;
+        }
+
+
+.option-list .option-list-item.costom-date:hover {
+    font-weight: normal;
+    background-color: transparent;
+}

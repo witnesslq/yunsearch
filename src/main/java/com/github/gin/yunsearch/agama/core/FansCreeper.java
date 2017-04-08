@@ -10,8 +10,9 @@ import com.github.gin.yunsearch.agama.entity.Fans;
 import com.github.gin.yunsearch.agama.pipeline.FansPipeline;
 import com.github.gin.yunsearch.agama.process.FansPageProcess;
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.service.YunUserService;
+import com.github.gin.yunsearch.service.jpa.YunUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -31,9 +32,13 @@ public class FansCreeper {
     private FansPageProcess pageProcess;
     @Autowired
     private YunUserService yunUserService;
+    @Value("${fans.run}")
+    private boolean runEnabled;
 
     @PostConstruct
     public void run(){
+        if(!runEnabled) return;
+
         List<Request> requestList = new ArrayList<>();
 
         List<YunUser> yunUserList = yunUserService.findFansNeedCrawle();

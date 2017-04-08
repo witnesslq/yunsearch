@@ -5,14 +5,13 @@ import com.github.gin.agama.core.JCrawler;
 import com.github.gin.agama.site.Request;
 import com.github.gin.yunsearch.agama.Constant;
 import com.github.gin.yunsearch.agama.YunRequestFactory;
-import com.github.gin.yunsearch.agama.entity.YData;
 import com.github.gin.yunsearch.agama.entity.YDataList;
 import com.github.gin.yunsearch.agama.pipeline.YDataListPipeline;
 import com.github.gin.yunsearch.agama.process.YDataListPageProcess;
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.repository.YunUserRepository;
-import com.github.gin.yunsearch.service.YunUserService;
+import com.github.gin.yunsearch.service.jpa.YunUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -32,9 +31,13 @@ public class YDataListCreeper {
     private YDataListPageProcess pageProcess;
     @Autowired
     private YunUserService yunUserService;
+    @Value("${data.run}")
+    private boolean runEnabled;
 
     @PostConstruct
     public void run(){
+        if(!runEnabled) return;
+
         List<Request> requestList = new ArrayList<>();
 
         List<YunUser> yunUserList = yunUserService.findPubshareNeedCrawle();

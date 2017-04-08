@@ -2,7 +2,7 @@ package com.github.gin.yunsearch.agama.pipeline;
 
 import com.github.gin.agama.pipeline.Pipeline;
 import com.github.gin.yunsearch.model.YunData;
-import com.github.gin.yunsearch.service.YunDataService;
+import com.github.gin.yunsearch.service.jpa.YunDataService;
 import com.github.gin.yunsearch.agama.entity.YData;
 import com.github.gin.yunsearch.agama.entity.YDataList;
 import org.springframework.beans.BeanUtils;

@@ -1,0 +1,86 @@
+header {
+    background-color: #f5f8fb;
+    float: right;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+header a {
+    color: #777;
+}
+
+.logo {
+    float: left;
+    padding: 15px 15px 2px 15px;
+    width: 135px;
+}
+
+    .logo img {
+        height: 37px;
+        position: relative;
+        top: 1px;
+    }
+
+.searcher {
+    background-color: #f5f8fb;
+    box-shadow: 0 0 1px #aaa;
+}
+
+    .searcher .searcharea {
+        padding: 15px 0 2px 0;
+    }
+
+        .searcher .searcharea .inputarea input#W {
+            width: 520px;
+            background-color: #fdfeff;
+        }
+
+    .searcher .applist {
+        margin-top: 5px;
+    }
+
+.results {
+    position: relative;
+    margin: 10px 20px 20px 165px;
+    border-bottom: 1px solid #ddd;
+    width: 630px;
+}
+
+    .results .result-head {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+        .results .result-head .statistics {
+            position: absolute;
+            top: 7px;
+            right: 0;
+            font-size: 13px;
+            color: #666;
+        }
+
+
+
+/*#region 分页组件*/
+
+#paging_block {
+    margin-left: 175px;
+}
+
+    #paging_block a {
+        display: inline-block;
+        border: solid 1px #eee;
+        text-align: center;
+        margin-right: 10px;
+        padding: 5px 10px;
+        color: #444;
+    }
+
+        #paging_block a.current {
+            background-color: #efefef;
+            border-color: #ccc;
+        }
+
+/*#endregion*/
+

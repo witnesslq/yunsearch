@@ -1,0 +1,24 @@
+﻿$(function () {
+    Dropdown.Initialize();
+    AddDatePicker();
+});
+
+function AddDatePicker() {
+    var picker1 = new Pikaday(
+    {
+        field: $('.date-from').get(0),
+        firstDay: 1,
+        minDate: new Date('2004-01-01'),
+        maxDate: Date.now()
+    });
+
+    var picker2 = new Pikaday(
+    {
+        field: $('.date-to').get(0),
+        firstDay: 1,
+        minDate: new Date('2004-01-01'),
+        maxDate: Date.now(),
+        yearRange: [2000, 2020]
+    });
+}
+

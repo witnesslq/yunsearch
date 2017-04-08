@@ -10,8 +10,9 @@ import com.github.gin.yunsearch.agama.entity.Follow;
 import com.github.gin.yunsearch.agama.pipeline.FollowPipeline;
 import com.github.gin.yunsearch.agama.process.FollowPageProcess;
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.service.YunUserService;
+import com.github.gin.yunsearch.service.jpa.YunUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -31,9 +32,13 @@ public class FollowCreeper {
     private FollowPageProcess pageProcess;
     @Autowired
     private YunUserService yunUserService;
+    @Value("${follow.run}")
+    private boolean runEnabled;
 
     @PostConstruct
     public void run() throws InterruptedException {
+        if(!runEnabled) return;
+
         List<Request> requestList = new ArrayList<>();
 
         List<YunUser> yunUserList = yunUserService.findFollowNeedCrawle();

@@ -1,4 +1,4 @@
-package com.github.gin.yunsearch.service;
+package com.github.gin.yunsearch.service.jpa;
 
 import com.github.gin.yunsearch.model.YunUser;
 import com.github.gin.yunsearch.repository.YunDataRepository;

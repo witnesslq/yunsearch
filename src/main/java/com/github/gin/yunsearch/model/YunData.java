@@ -1,5 +1,7 @@
 package com.github.gin.yunsearch.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,28 +17,36 @@ public class YunData {
     private Integer id;
 
     @Column(name = "share_id")
+    @JSONField(name = "share_id")
     private Long shareId;
 
     @Column(name = "data_id")
+    @JSONField(name = "data_id")
     private Long dataId;
 
     @Column(name = "share_name")
+    @JSONField(name = "share_name")
     private String shareName;
 
     @Column(name = "uk")
+    @JSONField(name = "uk")
     private Long uk;
 
     @Column(name = "description")
+    @JSONField(name = "description")
     private String description;
 
     @Column(name = "share_time")
+    @JSONField(name = "share_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date shareTime;
 
     @Column(name = "avatar_url")
+    @JSONField(name = "avatar_url")
     private String avatarUrl;
 
     @Column(name = "update_time")
+    @JSONField(name = "update_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
 

@@ -1,0 +1,23 @@
+﻿.inputarea input#Keywords {
+    height: 19px;
+    width: 520px;
+    border: 1px solid #1976d2;
+    font-size: 14px;
+    padding: 7px 10px;
+    color: #555;
+}
+
+.inputarea input#Keywords:hover {
+    box-shadow: 0 0 1px #1060af;
+}
+
+.inputarea input#submit {
+    height: 35px;
+    width: 85px;
+    border: none;
+    font-size: 14px;
+    background: url("../img/search.png") #1a80e6;
+    background-repeat: no-repeat;
+    background-position: 31px, 4px;
+    background-size: 22px, 22px;
+}

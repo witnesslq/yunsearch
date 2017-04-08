@@ -1,0 +1,116 @@
+﻿.result-item {
+    font-size: 12px;
+    margin-bottom: 20PX;
+    line-height: 2;
+}
+
+    .result-item strong {
+        font-weight: normal;
+        color: #DD4B39;
+    }
+
+    .result-item .result-title {
+        font-size: 16px;
+        width: 600px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-decoration: underline;
+    }
+
+        .result-item .result-title a {
+            color: #1a0dab;
+        }
+
+            .result-item .result-title a:visited {
+                color: #609;
+            }
+
+    .result-item .result-url {
+        display: block;
+        margin-left: 0;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: green;
+    }
+
+    .result-item .result-content {
+        padding-left: 10px;
+        width: 80%;
+        font-size: 13px;
+        color: #777;
+        text-align: justify;
+        word-wrap: break-word;
+        /* font-size: 16px; */
+        /* width: 600px; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        /* text-decoration: underline; */
+    }
+
+    .result-item .result-widget {
+        padding-left: 10px;
+        width: 80%;
+        padding-top: 3px;
+        /* font-size: 16px; */
+        /* width: 600px; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        /* text-decoration: underline; */
+    }
+
+        .result-item .result-widget span {
+            margin-right: 10px;
+        }
+
+            .result-item .result-widget span .iconfont {
+                margin-right: 2px;
+                color: #333;
+                font-size: 13px;
+            }
+
+/* #region ing */
+
+.result-item-ing {
+    position: relative;
+    background-color: #fbfdff;
+    box-shadow: 0 0 1px #999;
+    min-height: 50px;
+    padding: 20px 20px;
+}
+
+    .result-item-ing a.result-content-ing {
+        display: block;
+        word-wrap: break-word;
+        font-size: 13px;
+        color: #555;
+    }
+
+        .result-item-ing a.result-content-ing:visited {
+            color: purple;
+        }
+
+    .result-item-ing .result-widget-ing {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        text-align: right;
+        color: #999;
+    }
+        .result-item-ing .result-widget-ing a {
+            color: #999;
+        }
+/* #endregion*/
+
+/* #region question */
+
+.result-item-question .result-item-status{
+    color: #999; 
+    padding-left: 5px;
+}
+
+/* #endregion*/

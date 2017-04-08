@@ -8,8 +8,7 @@ import com.github.gin.yunsearch.agama.Constant;
 import com.github.gin.yunsearch.agama.YunRequestFactory;
 import com.github.gin.yunsearch.agama.entity.YDataList;
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.repository.YunUserRepository;
-import com.github.gin.yunsearch.service.YunUserService;
+import com.github.gin.yunsearch.service.jpa.YunUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
