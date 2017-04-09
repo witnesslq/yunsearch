@@ -31,7 +31,7 @@ public class ElasticsearchConfig {
                 .addTransportAddress(
                         new InetSocketTransportAddress(
                                 new InetSocketAddress(
-                                        InetAddress.getByName("192.168.153.131"),
+                                        InetAddress.getByName("localhost"),
                                         9300
                                 )
                         )

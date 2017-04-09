@@ -4,11 +4,11 @@ server:
     port: 8080
 
 fans:
-    run: false
+    run: true
 follow:
-    run: false
+    run: true
 data:
-    run: false
+    run: true
 
 spring:
     datasource:
