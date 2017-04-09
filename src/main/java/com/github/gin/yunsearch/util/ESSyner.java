@@ -23,9 +23,13 @@ public class ESSyner {
 
     @Scheduled(cron = "5/10 * * * * ?")
     public void mysql2Elastic() throws IOException {
-        YunData yunData = yunDataEls.getLastData();
-
-        List<YunData> yunDatas = yunDataService.findByUpdateTime(yunData.getUpdateTime());
+        List<YunData> yunDatas = null;
+        try {
+            YunData yunData = yunDataEls.getLastData();
+            yunDatas = yunDataService.findByUpdateTime(yunData.getUpdateTime());
+        } catch (Exception e) {
+            yunDatas = yunDataService.findAll();
+        }
 
         yunDataEls.bulkSave(yunDatas);
     }
