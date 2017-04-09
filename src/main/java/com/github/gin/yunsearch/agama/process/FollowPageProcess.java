@@ -39,7 +39,6 @@ public class FollowPageProcess implements PageProcess<Follow> {
                 yunUserService.setFollowCrawledComplete(uk);
 
                 List<YunUser> yunUserList = yunUserService.findFollowNeedCrawle();
-                System.out.println("follow :" + yunUserList.size());
                 for(YunUser yunUser : yunUserList) {
                     Request request = YunRequestFactory.create();
                     request.setUrl(String.format(Constant.FOLLOW_URL, yunUser.getUk(), Constant.LIMIT, 0));

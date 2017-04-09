@@ -39,7 +39,6 @@ public class FansPageProcess implements PageProcess<Fans> {
                 yunUserService.setFansCrawledComplete(uk);
 
                 List<YunUser> yunUserList = yunUserService.findFansNeedCrawle();
-                System.out.println("fans :" + yunUserList.size());
                 for(YunUser yunUser : yunUserList) {
                     Request request = YunRequestFactory.create();
                     request.setUrl(String.format(Constant.FANS_URL, yunUser.getUk(), Constant.LIMIT, 0));
