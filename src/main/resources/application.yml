@@ -1,15 +1,22 @@
+fans:
+    run: false
+follow:
+    run: true
+data:
+    run: false
+
 logging:
     level:
         root: INFO
-        #com.cpic.community: DEBUG
     config: classpath:logback-spring.xml
+
 
 server:
   context-path: /yunsearch
 
 spring:
     profiles:
-        active: prod
+        active: dev
     freemarker:
         cache: false
         suffix: .ftl

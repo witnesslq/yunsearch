@@ -2,10 +2,12 @@
 <configuration>
     <!-- spring boot 打印基本设置 -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <!-- 使用Spring Boot提供的控制台打印配置 -->
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     <!-- spring boot 常规输出日志文件 -->
     <!--<include resource="org/springframework/boot/logging/logback/file-appender.xml" />-->
 
+    <!-- log目录/文件名 -->
     <property name="LOG_DIR" value="../logs/yunsearch"/>
     <property name="LOG_FILE" value="yunsearch"/>
 
@@ -20,20 +22,43 @@
         -->
         <Prudent>true</Prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/%d{yyyy-MM-dd}/${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/log/%d{yyyy-MM-dd}.log</fileNamePattern>
         </rollingPolicy>
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
 
-    <!-- 需要输出日志的包-->
-    <logger name="com.github.gin.yunsearch" level="INFO" />
+    <appender name="ERRORFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <!--
+        <prudent>：当为true时，不支持FixedWindowRollingPolicy。
+        支持TimeBasedRollingPolicy，但是有两个限制，1不支持也不允许文件压缩，2不能设置file属性，必须留空。
+        -->
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/error/%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- 需要输出日志的包 TRACE, DEBUG, INFO, WARN, ERROR, ALL和OFF-->
+    <!-- addtivity: 是否向上级loger传递打印信息 -->
     <!--<logger name="com.github.gin.agama" level="DEBUG" />-->
+    <logger name="com.github.gin" level="INFO">
+        <appender-ref ref="DATEFILE" />
+    </logger>
+
+    <logger name="com.github.gin" level="ERROR">
+        <appender-ref ref="ERRORFILE" />
+    </logger>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-        <!--<appender-ref ref="FILE" />-->
         <appender-ref ref="DATEFILE" />
     </root>
 

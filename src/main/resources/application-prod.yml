@@ -1,14 +1,8 @@
-debug: false
+#debug: false
 
 server:
     port: 8080
 
-fans:
-    run: true
-follow:
-    run: true
-data:
-    run: true
 spring:
       datasource:
           name: test
