@@ -13,7 +13,5 @@ public interface YunDataRepository extends JpaRepository<YunData,Long>{
 
     List<YunData> findByUpdateTimeGreaterThan(Date updateTime);
 
-    YunData findByShareId(long shareId);
-
     List<YunData> findTop1000ByIsSingleShare(boolean isSingleShare);
 }

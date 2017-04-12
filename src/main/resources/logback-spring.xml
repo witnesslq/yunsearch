@@ -13,6 +13,11 @@
 
     <!-- 自定义按日期分割日志文件 -->
     <appender name="DATEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
@@ -30,6 +35,11 @@
     </appender>
 
     <appender name="ERRORFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
@@ -53,13 +63,9 @@
         <appender-ref ref="DATEFILE" />
     </logger>
 
-    <logger name="com.github.gin" level="ERROR">
-        <appender-ref ref="ERRORFILE" />
-    </logger>
-
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="DATEFILE" />
+        <appender-ref ref="ERRORFILE" />
     </root>
 
 </configuration>

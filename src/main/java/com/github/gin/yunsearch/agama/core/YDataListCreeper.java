@@ -51,7 +51,7 @@ public class YDataListCreeper {
         CrawlerContext context = CrawlerContext.create()
                 .persistBy(pipeline).processBy(pageProcess).build();
 
-        JCrawler.create()
+        JCrawler.create("WangPan")
                 .crawl(requestList.toArray(new Request[requestList.size()]))
                 .prey(YDataList.class)
                 .context(context)

@@ -54,7 +54,7 @@ public class FansCreeper {
                 .useConfig(new CrawlerConfig().setThreadNum(1).setInterval(10000))
                 .build();
 
-        JCrawler.create()
+        JCrawler.create("Fans")
                 .crawl(requestList.toArray(new Request[requestList.size()]))
                 .prey(Fans.class)
                 .context(context)

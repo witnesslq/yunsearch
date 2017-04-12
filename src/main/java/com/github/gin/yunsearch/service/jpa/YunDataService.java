@@ -59,8 +59,8 @@ public class YunDataService {
     }
 
 
-    public void setSingleShare(Long uk) {
-        YunData data = dataRepository.findByShareId(uk);
+    public void setSingleShare(Long id) {
+        YunData data = dataRepository.findOne(id);
         data.setSingleShare(true);
         data.setUpdateTime(new Date());
     }
@@ -88,6 +88,6 @@ public class YunDataService {
     }
 
     public void delete(Iterable<YunData> datas) {
-       dataRepository.delete(datas);
+        dataRepository.delete(datas);
     }
 }

@@ -6,8 +6,6 @@ data:
     run: false
 
 logging:
-    level:
-        root: INFO
     config: classpath:logback-spring.xml
 
 server:
@@ -23,6 +21,7 @@ spring:
     jpa:
       hibernate:
         ddl-auto: update
+      show-sql: true
     http:
       multipart:
         max-file-size: 15Mb

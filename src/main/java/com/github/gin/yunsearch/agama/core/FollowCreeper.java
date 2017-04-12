@@ -57,7 +57,7 @@ public class FollowCreeper {
                 .build();
 
         Thread.sleep(15000);
-        JCrawler.create()
+        JCrawler.create("Follow")
                 .crawl(requestList.toArray(new Request[requestList.size()]))
                 .prey(Follow.class)
                 .context(context)
