@@ -1,15 +1,17 @@
 package com.github.gin.yunsearch.service.jpa;
 
 import com.github.gin.yunsearch.model.YunUser;
-import com.github.gin.yunsearch.repository.YunDataRepository;
 import com.github.gin.yunsearch.repository.YunUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,26 +58,47 @@ public class YunUserService {
     }
 
     public void setPubshareCrawledComplete(Long uk) {
-        userRepository.updatePubshareCrawledFor(true ,uk);
+        YunUser user = userRepository.findByUk(uk);
+        user.setPubshareCrawled(true);
+        user.setUpdateTime(new Date());
     }
 
     public void setFollowCrawledComplete(Long uk) {
-        userRepository.updateFollowCrawledFor(true ,uk);
+        YunUser user = userRepository.findByUk(uk);
+        user.setFollowCrawled(true);
+        user.setUpdateTime(new Date());
     }
 
     public void setFansCrawledComplete(Long uk) {
-        userRepository.updateFansCrawledFor(true ,uk);
+        YunUser user = userRepository.findByUk(uk);
+        user.setFansCrawled(true);
+        user.setUpdateTime(new Date());
     }
 
-    public List<YunUser> findPubshareNeedCrawle() {
-        return userRepository.findTop3ByPubshareCrawled(false);
+    public List<YunUser> findPubshareNeedCrawled() {
+        YunUser user = new YunUser();
+        user.setPubshareCrawled(false);
+
+        Example<YunUser> example = Example.of(user);
+        Pageable pageable = new QPageRequest(0,3);
+        return userRepository.findAll(example,pageable).getContent();
     }
 
-    public List<YunUser> findFollowNeedCrawle() {
-        return userRepository.findTop3ByFollowCrawled(false);
+    public List<YunUser> findFollowNeedCrawled() {
+        YunUser user = new YunUser();
+        user.setFollowCrawled(false);
+
+        Example<YunUser> example = Example.of(user);
+        Pageable pageable = new QPageRequest(0,3);
+        return userRepository.findAll(example,pageable).getContent();
     }
 
-    public List<YunUser> findFansNeedCrawle() {
-        return userRepository.findTop3ByFansCrawled(false);
+    public List<YunUser> findFansNeedCrawled() {
+        YunUser user = new YunUser();
+        user.setFansCrawled(false);
+
+        Example<YunUser> example = Example.of(user);
+        Pageable pageable = new QPageRequest(0,3);
+        return userRepository.findAll(example,pageable).getContent();
     }
 }

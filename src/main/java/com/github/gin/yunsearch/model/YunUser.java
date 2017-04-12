@@ -135,4 +135,5 @@ public class YunUser {
     public void setFansCrawled(boolean fansCrawled) {
         this.fansCrawled = fansCrawled;
     }
+
 }

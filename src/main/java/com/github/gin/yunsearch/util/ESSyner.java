@@ -25,6 +25,7 @@ public class ESSyner {
     public void mysql2Elastic() throws IOException {
         List<YunData> yunDatas = null;
         try {
+            //如果elasticsearch没有该index，将自动创建
             YunData yunData = yunDataEls.getLastData();
             yunDatas = yunDataService.findByUpdateTime(yunData.getUpdateTime());
         } catch (Exception e) {

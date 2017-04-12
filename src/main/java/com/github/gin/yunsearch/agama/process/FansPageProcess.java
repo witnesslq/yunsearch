@@ -33,20 +33,22 @@ public class FansPageProcess implements PageProcess<Fans> {
             long uk = Long.parseLong(m.group(1));
             int start = Integer.parseInt(m.group(3));
 
-            //设置用户的订阅者是否获取完毕
+            //用户的粉丝是否获取完毕
             int fansCount = JSON.parseObject(page.getRawText()).getInteger("total_count");
             if ((start + Constant.LIMIT) >= fansCount) {
+                //用户的订阅者已获取完毕，更新对应字段
                 yunUserService.setFansCrawledComplete(uk);
 
-                List<YunUser> yunUserList = yunUserService.findFansNeedCrawle();
+                //获取待爬用户
+                List<YunUser> yunUserList = yunUserService.findFansNeedCrawled();
                 for(YunUser yunUser : yunUserList) {
                     Request request = YunRequestFactory.create();
                     request.setUrl(String.format(Constant.FANS_URL, yunUser.getUk(), Constant.LIMIT, 0));
 
                     ContextHolder.getContext().getScheduler().push(request);
                 }
-
             } else {
+                //获取下一页的订阅者
                 Request request = YunRequestFactory.create();
                 request.setUrl(String.format(Constant.FANS_URL, uk, Constant.LIMIT, start + Constant.LIMIT));
                 ContextHolder.getContext().getScheduler().push(request);

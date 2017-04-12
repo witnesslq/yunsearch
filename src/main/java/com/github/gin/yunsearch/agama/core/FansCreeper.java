@@ -41,7 +41,7 @@ public class FansCreeper {
 
         List<Request> requestList = new ArrayList<>();
 
-        List<YunUser> yunUserList = yunUserService.findFansNeedCrawle();
+        List<YunUser> yunUserList = yunUserService.findFansNeedCrawled();
         for (YunUser yunUser : yunUserList){
             Request request = YunRequestFactory.create();
             //获取用户订阅者的链接

@@ -40,7 +40,7 @@ public class YDataListCreeper {
 
         List<Request> requestList = new ArrayList<>();
 
-        List<YunUser> yunUserList = yunUserService.findPubshareNeedCrawle();
+        List<YunUser> yunUserList = yunUserService.findPubshareNeedCrawled();
         for(YunUser yunUser : yunUserList) {
             Request request = YunRequestFactory.create();
             request.setUrl(String.format(Constant.YUN_URL, yunUser.getUk(), 0));

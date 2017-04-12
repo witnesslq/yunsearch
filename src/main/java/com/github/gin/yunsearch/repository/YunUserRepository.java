@@ -12,21 +12,5 @@ import java.util.List;
  */
 public interface YunUserRepository extends JpaRepository<YunUser, Long> {
 
-    List<YunUser> findTop3ByPubshareCrawled(boolean isPubshareCrawled);
-
-    List<YunUser> findTop3ByFollowCrawled(boolean isFollowCrawled);
-
-    List<YunUser> findTop3ByFansCrawled(boolean isFansCrawled);
-
-    @Modifying
-    @Query("update YunUser u set u.pubshareCrawled = ?1 where u.uk = ?2")
-    void updatePubshareCrawledFor(boolean isPubshareCrawled, Long uk);
-
-    @Modifying
-    @Query("update YunUser u set u.followCrawled = ?1 where u.uk = ?2")
-    void updateFollowCrawledFor(boolean isFollowCrawled, Long uk);
-
-    @Modifying
-    @Query("update YunUser u set u.fansCrawled = ?1 where u.uk = ?2")
-    void updateFansCrawledFor(boolean isFansCrawled, Long uk);
+    YunUser findByUk(long uk);
 }

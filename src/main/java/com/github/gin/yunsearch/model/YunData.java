@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author GinPonson
@@ -14,7 +15,7 @@ public class YunData {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(name = "share_id")
     @JSONField(name = "share_id")
@@ -53,11 +54,14 @@ public class YunData {
     @Version
     private Integer version;
 
-    public Integer getId() {
+    @Column(name = "is_single_share")
+    private boolean isSingleShare;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -131,5 +135,26 @@ public class YunData {
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
+    }
+
+    public boolean isSingleShare() {
+        return isSingleShare;
+    }
+
+    public void setSingleShare(boolean singleShare) {
+        isSingleShare = singleShare;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        YunData data = (YunData) o;
+        return Objects.equals(shareId, data.shareId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(shareId);
     }
 }

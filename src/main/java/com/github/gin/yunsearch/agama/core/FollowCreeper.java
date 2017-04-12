@@ -41,7 +41,7 @@ public class FollowCreeper {
 
         List<Request> requestList = new ArrayList<>();
 
-        List<YunUser> yunUserList = yunUserService.findFollowNeedCrawle();
+        List<YunUser> yunUserList = yunUserService.findFollowNeedCrawled();
         for(YunUser yunUser : yunUserList) {
             Request request = YunRequestFactory.create();
             //获取用户订阅者的链接

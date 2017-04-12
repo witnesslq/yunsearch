@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,16 +19,12 @@
 <body>
 <header>
 <#-- <div class="sitenav">
-        <a href="http://cnblogs.com/">博客园首页</a>
+        <a href="">首页</a>
     </div>
     <div class="user-info">
-        <a href="http://home.cnblogs.com/u/ginponson/" class="user-alias">Gin.p</a>
+        <a href="" class="user-alias">Gin.p</a>
         <div class="ul">
-            <a href="http://www.cnblogs.com/ginponson">我的博客</a>
-            <a href="http://q.cnblogs.com/list/myquestion">我的博问</a>
-            <a href="http://msg.cnblogs.com/">短消息</a>
-            <a href="http://home.cnblogs.com/set/account">设置</a>
-            <a href="http://zzk.cnblogs.com/Account/Logout">注销</a>
+            <a href=""></a>
         </div>
     </div>-->
 </header>
@@ -58,6 +53,7 @@
         </div>
     </div>
 
+    <#if yunDataList??>
     <div class="results">
         <div class="result-head">
             <div class="options">
@@ -106,34 +102,6 @@
                         </div>
                     </div>-->
                 </div>
-
-
-                <#--<div class="option" data-dropdown="visits">
-                    <div class="option-value" href="#">浏览量 : 不限<span class="caret"></span></div>
-                    <div class="option-list">
-                        <span class="current option-list-item">不限</span>
-                        <a class="option-list-item"
-                           href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;ViewCount=50">大于50次</a><a
-                            class="option-list-item"
-                            href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;ViewCount=500">大于500次</a><a
-                            class="option-list-item"
-                            href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;ViewCount=2000">大于2000次</a>
-                    </div>
-                </div>
-
-
-                <div class="option" data-dropdown="digg">
-                    <div class="option-value" href="#">推荐数 : 不限<span class="caret"></span></div>
-                    <div class="option-list">
-                        <span class="current option-list-item">不限</span>
-                        <a class="option-list-item"
-                           href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;DiggCount=2">大于2次</a><a
-                            class="option-list-item"
-                            href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;DiggCount=10">大于10次</a><a
-                            class="option-list-item"
-                            href="http://zzk.cnblogs.com/my/s/blogpost-p?Keywords=Selenium&amp;DiggCount=100">大于100次</a>
-                    </div>
-                </div>-->
             </div>
             <#if count??>
             <div class="statistics">
@@ -143,50 +111,43 @@
             </div>
             </#if>
         </div>
-        <#if yunDataList??>
-            <#list yunDataList as data>
-                <div class="result-item">
-                    <div style="float: left;">
-                        <a target="_blank">
-                            <img width="70" height="70" class="pfs"
-                                 src="${data.avatarUrl}" alt="" align="Top"></a>
-                    </div>
-                    <div class="result-title" style=" padding-left: 10px;width: 80%">
-                        <a target="_blank" href="http://pan.baidu.com/share/link?uk=${data.uk?c}&third=0&shareid=${data.shareId?c}&adapt=pc&fr=ftw">
-                        ${data.shareName}
-                        <#--在Linux通过vsftp与windows共享文件-->
-                        </a>
-                    </div>
-                <#--<a target="_blank" class="result-url" href="http://www.cnblogs.com/ginponson/articles/5093243.html">
-                    http://www.cnblogs.com/ginponson/articles/5093243.html
-                </a>-->
-                    <div class="result-content">
-                    ${data.description!""}
-                    </div>
-                    <div class="result-widget">
+
+        <#list yunDataList as data>
+            <div class="result-item">
+                <div style="float: left;">
+                    <a target="_blank" href="http://pan.baidu.com/share/home?uk=${data.uk?c}#category/type=0">
+                        <img width="70" height="70" class="pfs"
+                             src="${data.avatarUrl}" alt="" align="Top">
+                    </a>
+                </div>
+                <div class="result-title" style=" padding-left: 10px;width: 80%">
+                    <a target="_blank" href="http://pan.baidu.com/share/link?uk=${data.uk?c}&third=0&shareid=${data.shareId?c}&adapt=pc&fr=ftw">
+                    ${data.shareName}
+                    </a>
+                </div>
+            <#--<a target="_blank" class="result-url" href="http://www.cnblogs.com/ginponson/articles/5093243.html">
+                http://www.cnblogs.com/ginponson/articles/5093243.html
+            </a>-->
+                <div class="result-content">
+                ${data.description!""}
+                </div>
+                <div class="result-widget">
                 <span>
                     <i class="iconfont icon-shijian" aria-hidden="true"></i>
                 <#-- 2016-1-1-->
                 ${data.shareTime?string("yyyy-MM-dd")}
                 </span>
-                    <#--<span><i class="iconfont icon-dianzan" aria-hidden="true"></i>0</span>
-                    <span><i class="iconfont icon-pinglun" aria-hidden="true"></i>0</span>
-                    <span><i class="iconfont icon-liulan" aria-hidden="true"></i>2</span>-->
-
-                    </div>
+                <#--<span><i class="iconfont icon-dianzan" aria-hidden="true"></i>0</span>
+                <span><i class="iconfont icon-pinglun" aria-hidden="true"></i>0</span>
+                <span><i class="iconfont icon-liulan" aria-hidden="true"></i>2</span>-->
                 </div>
-            </#list>
-        </#if>
+            </div>
+        </#list>
 
-    <#-- <script type="text/javascript" async="" src="./Selenium - 博客园找找看_files/ga.js.下载"></script>
-     <script>
-         function updateIndex() {
-
-         }
-     </script>-->
     </div>
+    </#if>
 
-    <#if yunDataList??>
+    <#if yunDataList?? && yunDataList.size != 0>
     <div id="paging_block">
         <div class="pager">
             <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=1" class="p_1">1</a>
@@ -207,13 +168,12 @@
     </div>
     </#if>
 
-    <aside></aside>
 </div>
 <footer>
-<#-- ©2004-2017 <a href="http://www.cnblogs.com/">博客园</a>-->
+<#-- ©2004-2017 <a href="http://www.cnblogs.com/"></a>-->
 </footer>
-<script src="${request.contextPath}/public/js/menu.js.下载"></script>
-<script src="${request.contextPath}/public/js/jquery.js.下载" type="text/javascript"></script>
+<script src="${request.contextPath}/public/js/menu.js"></script>
+<script src="${request.contextPath}/public/js/jquery.js" type="text/javascript"></script>
 <script>
     $(function () {
         Dropdown.Initialize();
@@ -227,7 +187,5 @@
 
     });
 </script>
-<div class="pika-single is-hidden is-bound"></div>
-<div class="pika-single is-hidden is-bound"></div>
 </body>
 </html>

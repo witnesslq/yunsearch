@@ -1,7 +1,7 @@
 fans:
     run: false
 follow:
-    run: true
+    run: false
 data:
     run: false
 
@@ -10,9 +10,8 @@ logging:
         root: INFO
     config: classpath:logback-spring.xml
 
-
 server:
-  context-path: /yunsearch
+  context-path: /
 
 spring:
     profiles:

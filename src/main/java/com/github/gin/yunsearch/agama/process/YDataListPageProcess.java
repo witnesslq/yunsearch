@@ -32,21 +32,24 @@ public class YDataListPageProcess implements PageProcess<YDataList> {
             long uk = Long.parseLong(m.group(1));
             int start = Integer.parseInt(m.group(2));
 
-            //设置该用户的资源是否已获取完毕
+            //该用户的资源是否已获取完毕
             int dataCount = 0;
             if(yDatasList != null && !yDatasList.isEmpty()) {
                 dataCount = yDatasList.get(0).getTotalCount();
             }
             if ((start + Constant.LIMIT) >= dataCount) {
+                //用户的资源已获取完毕，更新对应字段
                 yunUserService.setPubshareCrawledComplete(uk);
 
-                List<YunUser> yunUserList = yunUserService.findPubshareNeedCrawle();
+                //获取待爬用户
+                List<YunUser> yunUserList = yunUserService.findPubshareNeedCrawled();
                 for(YunUser yunUser : yunUserList) {
                     Request request = YunRequestFactory.create();
                     request.setUrl(String.format(Constant.YUN_URL, yunUser.getUk(), 0));
                     ContextHolder.getContext().getScheduler().push(request);
                 }
             } else {
+                //获取下一页的共享资源
                 Request request = YunRequestFactory.create();
                 request.setUrl(String.format(Constant.YUN_URL, uk, start + Constant.LIMIT));
                 ContextHolder.getContext().getScheduler().push(request);
