@@ -4,17 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>云盘搜索</title>
 
-    <link href="${request.contextPath}/public/css/site.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/SearchArea.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/Search.AppList.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/Header.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/Search.Options.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/search.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/SearchResultItem.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/CustomDateOption.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${request.contextPath}/public/css/pikaday.css" rel="stylesheet">
-    <link rel="stylesheet" href="${request.contextPath}/public/css/font_1476601022_2729867.css">
+    <link href="public/css/site.css" rel="stylesheet">
+    <link href="public/css/SearchArea.css" rel="stylesheet">
+    <link href="public/css/Search.AppList.css" rel="stylesheet">
+    <link href="public/css/Header.css" rel="stylesheet">
+    <link href="public/css/Search.Options.css" rel="stylesheet">
+    <link href="public/css/search.css" rel="stylesheet">
+    <link href="public/css/SearchResultItem.css" rel="stylesheet">
+    <link href="public/css/CustomDateOption.css" rel="stylesheet">
+    <link href="public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="public/css/pikaday.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/font_1476601022_2729867.css">
 </head>
 <body>
 <header>
@@ -37,7 +37,7 @@
         </div>
         <div class="searcharea">
 
-            <form action="${request.contextPath}/search" autocomplete="off" method="get">
+            <form action="search" autocomplete="off" method="get">
                 <div class="inputarea">
                     <input id="Keywords" name="keyword" type="text" value="${keyword!}">
                     <input type="submit" id="submit" value=" ">
@@ -150,20 +150,20 @@
     <#if yunDataList?? && yunDataList?size != 0>
     <div id="paging_block">
         <div class="pager">
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=1" class="p_1">1</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=2" class="p_2">2</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=3" class="p_3">3</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=4" class="p_4">4</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=5" class="p_5">5</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=6" class="p_6">6</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=7" class="p_7">7</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=8" class="p_8">8</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=9" class="p_9">9</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=10" class="p_10">10</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=11" class="p_11">11</a>
+            <a href="search?keyword=${keyword!}&pageindex=1" class="p_1">1</a>
+            <a href="search?keyword=${keyword!}&pageindex=2" class="p_2">2</a>
+            <a href="search?keyword=${keyword!}&pageindex=3" class="p_3">3</a>
+            <a href="search?keyword=${keyword!}&pageindex=4" class="p_4">4</a>
+            <a href="search?keyword=${keyword!}&pageindex=5" class="p_5">5</a>
+            <a href="search?keyword=${keyword!}&pageindex=6" class="p_6">6</a>
+            <a href="search?keyword=${keyword!}&pageindex=7" class="p_7">7</a>
+            <a href="search?keyword=${keyword!}&pageindex=8" class="p_8">8</a>
+            <a href="search?keyword=${keyword!}&pageindex=9" class="p_9">9</a>
+            <a href="search?keyword=${keyword!}&pageindex=10" class="p_10">10</a>
+            <a href="search?keyword=${keyword!}&pageindex=11" class="p_11">11</a>
             ···
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=50" class="p_50">50</a>
-            <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=2">Next &gt;</a>
+            <a href="search?keyword=${keyword!}&pageindex=50" class="p_50">50</a>
+            <a href="search?keyword=${keyword!}&pageindex=2">Next &gt;</a>
         </div>
     </div>
     </#if>
@@ -172,8 +172,8 @@
 <footer>
 <#-- ©2004-2017 <a href="http://www.cnblogs.com/"></a>-->
 </footer>
-<script src="${request.contextPath}/public/js/menu.js"></script>
-<script src="${request.contextPath}/public/js/jquery.js" type="text/javascript"></script>
+<script src="public/js/menu.js"></script>
+<script src="public/js/jquery.js" type="text/javascript"></script>
 <script>
     $(function () {
         Dropdown.Initialize();

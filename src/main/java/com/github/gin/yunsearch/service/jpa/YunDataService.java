@@ -62,7 +62,6 @@ public class YunDataService {
     public void setSingleShare(Long id) {
         YunData data = dataRepository.findOne(id);
         data.setSingleShare(true);
-        data.setUpdateTime(new Date());
     }
 
     public List<YunData> findByUpdateTime(Date updateTime) {
