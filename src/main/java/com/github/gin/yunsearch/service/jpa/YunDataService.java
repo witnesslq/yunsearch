@@ -40,7 +40,7 @@ public class YunDataService {
                         ":updateTime, " +
                         ":shareTime, " +
                         ":avatarUrl, " +
-                        ":version" +
+                        ":version," +
                         ":isSingleShare" +
                         ")"
         );

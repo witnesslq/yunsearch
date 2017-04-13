@@ -25,7 +25,7 @@ public class DuplicateRemover {
     /**
      * 去除同一个多次分享的同名资源
      */
-    @Scheduled(cron = "5/10 * * * * ?")
+    @Scheduled(cron = "* 5/10 * * * ?")
     public void removeDuplicate(){
         Set<YunData> duplicateDataSet = new HashSet<>();
         Set<YunData> uniqueDataSet = new HashSet<>();
