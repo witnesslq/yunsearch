@@ -6,6 +6,7 @@ import com.github.gin.yunsearch.repository.YunUserRepository;
 import com.github.gin.yunsearch.service.els.YunDataEls;
 import com.github.gin.yunsearch.service.jpa.YunDataService;
 import com.github.gin.yunsearch.service.jpa.YunUserService;
+import com.github.gin.yunsearch.util.DuplicateRemover;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +37,10 @@ public class YunDataTest {
         yunDataEls.bulkSave(dataList);
     }
 
+    @Autowired
+    DuplicateRemover remover;
+    @Test
+    public void testRemoveDuplicate() throws IOException {
+        remover.removeDuplicate();
+    }
 }

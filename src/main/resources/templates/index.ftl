@@ -147,7 +147,7 @@
     </div>
     </#if>
 
-    <#if yunDataList?? && yunDataList.size != 0>
+    <#if yunDataList?? && yunDataList?size != 0>
     <div id="paging_block">
         <div class="pager">
             <a href="${request.contextPath}/search?keyword=${keyword!}&pageindex=1" class="p_1">1</a>
