@@ -4,10 +4,12 @@ import com.github.gin.yunsearch.model.YunUser;
 import com.github.gin.yunsearch.repository.YunUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -79,26 +81,29 @@ public class YunUserService {
         YunUser user = new YunUser();
         user.setPubshareCrawled(false);
 
-        Example<YunUser> example = Example.of(user);
-        Pageable pageable = new QPageRequest(0,3);
-        return userRepository.findAll(example,pageable).getContent();
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnorePaths("followCrawled", "fansCrawled");
+        Example<YunUser> example = Example.of(user, matcher);
+        Pageable pageable = new QPageRequest(0, 3);
+        return userRepository.findAll(example, pageable).getContent();
     }
 
     public List<YunUser> findFollowNeedCrawled() {
         YunUser user = new YunUser();
         user.setFollowCrawled(false);
 
-        Example<YunUser> example = Example.of(user);
-        Pageable pageable = new QPageRequest(0,3);
-        return userRepository.findAll(example,pageable).getContent();
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnorePaths("pubshareCrawled", "fansCrawled");
+        Example<YunUser> example = Example.of(user, matcher);
+        Pageable pageable = new QPageRequest(0, 3);
+        return userRepository.findAll(example, pageable).getContent();
     }
 
     public List<YunUser> findFansNeedCrawled() {
         YunUser user = new YunUser();
         user.setFansCrawled(false);
 
-        Example<YunUser> example = Example.of(user);
-        Pageable pageable = new QPageRequest(0,3);
-        return userRepository.findAll(example,pageable).getContent();
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnorePaths("followCrawled", "pubshareCrawled");
+        Example<YunUser> example = Example.of(user, matcher);
+        Pageable pageable = new QPageRequest(0, 3);
+        return userRepository.findAll(example, pageable).getContent();
     }
 }

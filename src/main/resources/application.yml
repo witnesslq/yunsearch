@@ -1,9 +1,9 @@
 fans:
-    run: false
+    run: true
 follow:
-    run: false
+    run: true
 data:
-    run: false
+    run: true
 
 logging:
     config: classpath:logback-spring.xml

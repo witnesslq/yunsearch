@@ -5,6 +5,7 @@ import com.github.gin.yunsearch.model.YunUser;
 import com.github.gin.yunsearch.repository.YunDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
@@ -81,7 +82,9 @@ public class YunDataService {
         data.setUk(uk);
         data.setShareName(shareName);
 
-        Example<YunData> example = Example.of(data);
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnorePaths("isSingleShare");
+
+        Example<YunData> example = Example.of(data, matcher);
         Sort sort = new Sort(Sort.Direction.DESC, "updateTime");
         return dataRepository.findAll(example, sort);
     }
