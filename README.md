@@ -11,12 +11,16 @@ yunsearch是我另外一个项目agama爬虫框架的实践产物，yunsearch演
 2.启动Elasticsearch，项目版本5.0以上。
 
 3.由于项目依赖的agama并没有发布到maven仓库，需要自行导到本地maven。
+- 克隆``git clone https://github.com/GinPonson/agama.git``
+- ``mvn install``安装项目依赖
 
 4.``mvn install``安装项目依赖，``mvn package``打成war包，放到servlet容器上运行。
 
 # TODO
-- [ ] 去除多次分享导致的文件重复
+- [X] 去除多次分享导致的文件重复
 - [ ] 文件的分类
 
 # 项目依赖
-Spring Boot、Elasticsearch、MySql
+Spring Boot、Elasticsearch、MySql、Agama
+ss
+

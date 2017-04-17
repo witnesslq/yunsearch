@@ -51,14 +51,8 @@ public class ESSyner {
             List<YunData> duplicateDataList = yunDataService.findByUkAndShareName(data.getUk(), data.getShareName());
 
             //分类：最新的资源
-            try{
-                YunData uniqueData = duplicateDataList.remove(0);
-                uniqueDataSet.add(uniqueData);
-            } catch (Exception e) {
-                System.out.println(data.getUk()+":"+data.getShareName());
-                throw e;
-            }
-
+            YunData uniqueData = duplicateDataList.remove(0);
+            uniqueDataSet.add(uniqueData);
 
             //重复分享的同名资源
             duplicateDataSet.addAll(duplicateDataList);

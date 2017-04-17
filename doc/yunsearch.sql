@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50631
+Source Server Version : 50716
 Source Host           : localhost:3306
 Source Database       : yunsearch
 
 Target Server Type    : MYSQL
-Target Server Version : 50631
+Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2017-04-12 23:41:59
+Date: 2017-04-17 14:07:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,11 @@ CREATE TABLE `yun_data` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_yun_data_shareid` (`share_id`) USING BTREE,
   KEY `index_yun_data_uk` (`uk`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=135796 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yun_data
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for yun_user
@@ -54,4 +58,9 @@ CREATE TABLE `yun_user` (
   `fans_crawled` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_yun_user_uk` (`uk`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=52628 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yun_user
+-- ----------------------------
+INSERT INTO `yun_user` VALUES ('1', '51xuejava_com', '2889076181', '2017-04-14 21:32:34', 'http://himg.bdimg.com/sys/portrait/item/83ac0a37.jpg', '152', '1', '\0', '\0', '2017-04-14 21:23:58', '\0');
